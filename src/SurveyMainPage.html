@@ -8,6 +8,15 @@
     <title>Avengers Form</title>
 
     <style>
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items:center;
+            background: url("https://res.cloudinary.com/darkmike/image/upload/v1556824593/Resources/Textures/brick-wall-white-2.jpg");
+            }
+
         #form {
         display: flex;
         flex-direction: column;
@@ -22,6 +31,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        padding: 15px;
+        border-style: solid;
+        border-color: black;
+        border-radius:3%;
+        background: linear-gradient(135deg, #1a68ce, white);
         }
 
         #basic-info{
@@ -31,9 +45,35 @@
         grid-template-area:
         "name-paragraph email-paragraph nr-paragraph"
         "name-label email-label number-label";
-        grid-gap: 10px 5px;
+        grid-gap: 0px 10px;
+        justify-items: center;
 
         }
+
+        #radio-container{
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-area:
+        "radio-one radio-two";
+        grid-gap: 5px;
+        justify-items: center;
+        align-items: center;
+        padding: 15px;
+        }
+
+        #radio-one {
+        display: flex;
+        flex-direction: column;
+        }
+
+        #radio-two {
+        display: flex;
+        flex-direction: column;
+        }
+
+
+
+
 
     </style>
 
@@ -44,40 +84,41 @@
 
 <!--    Title of the form  -->
 
-    <div id="form">
-    <h1 id="title">Avengers form</h1>
+<div id="form">
+    <h1 id="title" style="color: white;">Avengers Survey</h1>
 
-<!--    Description of the form -->
-    <p id="description">description</p>
+    <!--    Description of the form -->
+    <p id="description" style="color: white;">This simple form is meant to gage your impression regarding the series so far. There are no spoilers from Endgame </p>
 
 
-<!--    The form -->
+    <!--    The form -->
     <form id="survey-form">
 
         <div id="basic-info">
-<!--        Input fields for name, email and the number of movies from marvel seen-->
-            <div id="name-container">
-                <p style="align-text:center;">Name</p>
-                <p style="align-text:center;">Email</p>
-                <p style="align-text:center;">Nr of Marvel films seen</p>
+            <!--        Input fields for name, email and the number of movies from marvel seen-->
 
-                <label id="name-label" for="name">
-        <input id="name" type="text" required placeholder="Enter name..."/>
-        </label>
+            <p id="name-paragraph" style="align-text:center;">Name</p>
+            <p id="email-paragraph" style="align-text:center;">Email</p>
+            <p id="nr-paragraph" style="align-text:center;">Nr of Marvel films seen</p>
+
+            <!--<div id="name-container">-->
+
+                <label id="name-label" for="name">1
+                    <input id="name" type="text" required placeholder="Enter name..."/>
+                </label>
+
+                <label id="email-label" for="email">2
+                    <input id="email" type="email" required placeholder="Enter email"/>
+                </label>
+
+                <label id="number-label" for="number">3
+                    <input id="number" type="number" min="0" max="23" placeholder="nr.">
+                </label>
         </div>
-        <div id="mail-container">
-        <label id="email-label" for="email">
-        <input id="email" type="email" required placeholder="Enter email"/>
-        </label>
-        </div>
-        <div id="film-number">
-        <label id="number-label" for="number">
-        <input id="number" type="number" min="0" max="23" placeholder="nr.">How many marvel films have you seen
-        </label>
-        </div>
-        </div>
-<!--        Favorite hero from the provided list-->
-        <p>What is you're favorite hero</p>
+
+
+        <!--        Favorite hero from the provided list-->
+        <p>What is you're favorite hero from the list below?</p>
         <label id="drop-down" for="dropdown">
             <select id="dropdown">
                 <option value="iron">Iron Man</option>
@@ -88,46 +129,69 @@
         </label>
 
 
-<!--        How many times will the respondent see the movie single choice(radio)-->
-        <label id="radio-label1" for="no-radio1">
-            <input id="no-radio1" type="radio" name="radio-choice1" value="Once was enough for me" checked>Once was enough for me
-        </label>
-        <label id="radio-label2" for="no-radio2">
-            <input id="no-radio2" type="radio" name="radio-choice1" value="I will see it 2 or 3 times">I will see it 2 or 3 times
-        </label>
-        <label id="radio-label3" for="no-radio3">
-            <input id="no-radio3" type="radio" name="radio-choice1" value="I'll go as much as possible to resee it">I'll go as much as possible to resee it
-        </label>
+        <div id="radio-container">
+            <!--        How many times will the respondent see the movie single choice(radio)-->
+            <div id="radio-one">
+                <p id="first-q" style="justify-self:start; align-self:start;">How many times do you intend to see the
+                    movie?</p>
 
-<!--        Will he recommended the movie? Single choice(radio)-->
-        <label id="radio-label4" for="no-radio4">
-            <input id="no-radio4" type="radio" name="radio-choice2" value="Yes, I will bring a friend" checked>Yes, I will bring a friend
-        </label>
-        <label id="radio-label5" for="no-radio5">
-            <input id="no-radio5" type="radio" name="radio-choice2" value="I don't have any friends">I don't have any friends
-        </label>
+                <label id="radio-label1" for="no-radio1">
+                    <input id="no-radio1" type="radio" name="radio-choice1" value="Once was enough for me" checked>Once
+                    was enough for me
+                </label>
+                <label id="radio-label2" for="no-radio2">
+                    <input id="no-radio2" type="radio" name="radio-choice1" value="I will see it 2 or 3 times">I will
+                    see it 2 or 3 times
+                </label>
+                <label id="radio-label3" for="no-radio3">
+                    <input id="no-radio3" type="radio" name="radio-choice1"
+                           value="I'll go as much as possible to reese it">I'll go as much as possible to reese it
+                </label>
+            </div>
 
-<!--        Multi choice(checkbox) what the respondent would like to see in future movies-->
-        <label id="better-label1" for="explosions">
-            <input id="explosions" type="checkbox" name="make-better" value="Explosions, Michael Bay it" checked>Explosions, Michael Bay it
-        </label>
-        <label id="better-label2" for="special">
-            <input id="special" type="checkbox" name="make-better" value="More special effects">More special effects
-        </label>
-        <label id="better-label3" for="heroes">
-            <input id="heroes" type="checkbox" name="make-better" value="Even more heroes">Even more heroes
-        </label>
+            <!--        Will he recommended the movie? Single choice(radio)-->
+            <div id="radio-two">
+                <p id="second-q" style="justify-self:start; align-self:start; !important">Did you or will you bring a
+                    friend?</p>
+                <label id="radio-label4" for="no-radio4">
+                    <input id="no-radio4" type="radio" name="radio-choice2" value="Yes, I will bring a friend" checked>Yes,
+                    I will bring a friend
+                </label>
+                <label id="radio-label5" for="no-radio5">
+                    <input id="no-radio5" type="radio" name="radio-choice2" value="I don't have any friends">I don't
+                    have any friends
+                </label>
+            </div>
+        </div>
 
-<!--        Comments Box-->
+        <!--        Multi choice(checkbox) what the respondent would like to see in future movies-->
+        <div id="check-container">
+
+            <p id="checked-q" style="text-align: center">What would you like to see in future movies?</p>
+
+            <label id="better-label1" for="explosions">
+                <input id="explosions" type="checkbox" name="make-better" value="Explosions, Michael Bay it" checked>Explosions,
+                Michael Bay it
+            </label>
+            <label id="better-label2" for="special">
+                <input id="special" type="checkbox" name="make-better" value="More special effects">More special effects
+            </label>
+            <label id="better-label3" for="heroes">
+                <input id="heroes" type="checkbox" name="make-better" value="Even more heroes">Even more heroes
+            </label>
+        </div>
+
+
+        <!--        Comments Box-->
         <label id="text-box" for="<textarea>">
-            <textarea id="<textarea>" placeholder="Anything you would like to tell us?"></textarea>
+            <textarea id="<textarea>" style="width: 350px; height: 200px; margin: 10px;" placeholder="Anything you would like to tell us?"></textarea>
         </label>
 
-<!--        Submit button-->
+        <!--        Submit button-->
         <label id="submit-label" for="submit">
             <button id="submit" type="submit">Submit</button>
         </label>
     </form>
-    </div>
+</div>
 </body>
 </html>
